@@ -32,7 +32,7 @@ public class Change_Language : MonoBehaviour
 
         if (currentLanguage < 0)
         {
-            currentLanguage = 4;
+            currentLanguage = 1;
         }
 
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[currentLanguage];

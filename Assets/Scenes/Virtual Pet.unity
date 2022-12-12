@@ -604,7 +604,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125
+  m_fontSize: 113.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2548,7 +2548,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
+  m_fontSize: 158.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3089,7 +3089,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
+  m_fontSize: 152.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4301,7 +4301,7 @@ MonoBehaviour:
   optionsBackground: {fileID: 173937152}
   changeLanguageText: {fileID: 279888175}
   buttonPreviousLanguage: {fileID: 687394466}
-  buttonNextLanguage: {fileID: 0}
+  buttonNextLanguage: {fileID: 680236258}
   flag: {fileID: 1864875498}
   currentLanguage: {fileID: 1681237166}
   volumeText: {fileID: 137397283}
