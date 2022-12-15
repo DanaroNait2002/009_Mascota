@@ -54,6 +54,18 @@ MonoBehaviour:
     m_Localized: Ajustar Volumen
     m_Metadata:
       m_Items: []
+  - m_Id: 1106986168459264
+    m_Localized: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1107053776445440
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1107120583319552
+    m_Localized: Efectos
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

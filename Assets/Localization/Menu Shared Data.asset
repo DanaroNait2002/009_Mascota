@@ -51,6 +51,18 @@ MonoBehaviour:
     m_Key: TittleVolume
     m_Metadata:
       m_Items: []
+  - m_Id: 1106986168459264
+    m_Key: ButtonSave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1107053776445440
+    m_Key: TittleMusic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1107120583319552
+    m_Key: TittleEffects
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
