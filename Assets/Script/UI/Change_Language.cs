@@ -5,8 +5,13 @@ using UnityEngine.Localization.Settings;
 
 public class Change_Language : MonoBehaviour
 {
-    int currentLanguage = 0;
+    public int currentLanguage;
     int TOTALLANGUAGES;
+
+    private void Awake()
+    {
+        LoadLanguage();
+    }
 
     private void Start()
     {
@@ -50,4 +55,17 @@ public class Change_Language : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[currentLanguage];
     }
 
+    public void SaveLanguage()
+    {
+        PlayerPrefs.SetInt("currentLanguage", currentLanguage);
+        PlayerPrefs.Save();
+        Debug.Log("Se ha guardado");
+    }
+
+    public void LoadLanguage()
+    {
+        currentLanguage = PlayerPrefs.GetInt("currentLanguage", 0);
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[currentLanguage];
+        Debug.Log(currentLanguage);
+    }
 }
