@@ -59,13 +59,11 @@ public class Change_Language : MonoBehaviour
     {
         PlayerPrefs.SetInt("currentLanguage", currentLanguage);
         PlayerPrefs.Save();
-        Debug.Log("Se ha guardado");
     }
 
     public void LoadLanguage()
     {
         currentLanguage = PlayerPrefs.GetInt("currentLanguage", 0);
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[currentLanguage];
-        Debug.Log(currentLanguage);
     }
 }
