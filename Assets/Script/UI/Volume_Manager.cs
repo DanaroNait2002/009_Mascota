@@ -10,13 +10,21 @@ public class Volume_Manager : MonoBehaviour
         [SerializeField]
         Slider volumeSlider;
 
+    [SerializeField]
+    GameObject gameManager;
+
     void Start()
+    {
+        LoadVolume();
+    }
+
+    //FUNTIONS
+
+    public void LoadVolume()
     {
         //At the start the value in the slider is set to the one that has been save or to 1f in case there's none
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume", 1f);
     }
-
-    //FUNTIONS
         public void ChangeVolume()
         {
             //As soon as the value in the Slider change the volumes change to that value
@@ -30,4 +38,10 @@ public class Volume_Manager : MonoBehaviour
             PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
             PlayerPrefs.Save();
         }
+
+    public void ResetVolumeSettings()
+    {
+        PlayerPrefs.DeleteAll();
+        LoadVolume();
+    }
 }

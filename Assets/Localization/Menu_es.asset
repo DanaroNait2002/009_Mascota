@@ -66,6 +66,26 @@ MonoBehaviour:
     m_Localized: Efectos
     m_Metadata:
       m_Items: []
+  - m_Id: 1445103039651840
+    m_Localized: "La configuraci\xF3n actual va a ser guardada.\n\xBFQuiere continuar?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1446456252145664
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1446523797217280
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456223179743232
+    m_Localized: "Configuraci\xF3n por defecto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1459595798618112
+    m_Localized: "La configuraci\xF3n actual va a ser formateada.\n\xBFQuiere continuar?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

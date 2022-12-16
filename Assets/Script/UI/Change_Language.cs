@@ -59,7 +59,7 @@ public class Change_Language : MonoBehaviour
             //In case Current Language reach a value lower than 0 the value is set to the maximun of languages available
             if (currentLanguage < 0)
             {
-                currentLanguage = TOTALLANGUAGES;
+                currentLanguage = 1;
             }
 
             //The language is set to the value that current Language has
@@ -88,5 +88,9 @@ public class Change_Language : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-    
+    public void ResetLanguageSettings()
+    {
+        PlayerPrefs.DeleteAll();
+        LoadLanguage();
+    }
 }

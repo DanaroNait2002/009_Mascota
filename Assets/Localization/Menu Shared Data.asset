@@ -63,6 +63,26 @@ MonoBehaviour:
     m_Key: TittleEffects
     m_Metadata:
       m_Items: []
+  - m_Id: 1445103039651840
+    m_Key: TittleSave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1446456252145664
+    m_Key: TittleYes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1446523797217280
+    m_Key: TittleNo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456223179743232
+    m_Key: ButtonRestoreSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1459595798618112
+    m_Key: TittleReset
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

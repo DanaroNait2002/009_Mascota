@@ -66,6 +66,32 @@ MonoBehaviour:
     m_Localized: Effects
     m_Metadata:
       m_Items: []
+  - m_Id: 1445103039651840
+    m_Localized: 'The Current Settings are going to be saved.
+
+      Do you want
+      to continue?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1446456252145664
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1446523797217280
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1456223179743232
+    m_Localized: Reset defaults
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1459595798618112
+    m_Localized: 'The Current Settings are going to be reset.
+
+      Do you want
+      to continue?'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
