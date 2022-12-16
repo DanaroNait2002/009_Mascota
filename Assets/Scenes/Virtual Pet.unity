@@ -780,7 +780,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1825787867}
         m_TargetAssemblyTypeName: Animation_Interface, Assembly-CSharp
-        m_MethodName: ButtonOptions
+        m_MethodName: ButtonSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4025,7 +4025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1518944720451438279, guid: 4ec798a481bf945e5936c4cb72dd37a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonOptions
+      value: ButtonSettings
       objectReference: {fileID: 0}
     - target: {fileID: 1518944720451438279, guid: 4ec798a481bf945e5936c4cb72dd37a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4754,7 +4754,6 @@ GameObject:
   - component: {fileID: 1825787867}
   - component: {fileID: 1825787869}
   - component: {fileID: 1825787871}
-  - component: {fileID: 1825787872}
   m_Layer: 0
   m_Name: GAME CONTROLLER
   m_TagString: Untagged
@@ -4778,10 +4777,10 @@ MonoBehaviour:
   tittle: {fileID: 1104594248}
   buttonsBackground_01: {fileID: 1805029708}
   buttonContinue: {fileID: 1605622268}
-  buttonOptions_01: {fileID: 204993463}
+  buttonSettings_01: {fileID: 204993463}
   buttonExit: {fileID: 1900179091}
   buttonsBackground_02: {fileID: 1788943182}
-  buttonOptions_02: {fileID: 947676403}
+  buttonSettings_02: {fileID: 947676403}
   tittleSettings: {fileID: 1396469631}
   settingsBackground: {fileID: 173937152}
   changeLanguageText: {fileID: 279888175}
@@ -4920,19 +4919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLanguage: 0
---- !u!114 &1825787872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825787866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84741b09abbdfd74b8f0cb56bf850760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 1986376335}
 --- !u!1 &1845409262
 GameObject:
   m_ObjectHideFlags: 0
