@@ -62,15 +62,20 @@ public class Animation_Interface : MonoBehaviour
     GameObject tittleContinueSave;
     [SerializeField]
     GameObject saveBackground;
+    [SerializeField]
+    GameObject buttonYesSave;
+    [SerializeField]
+    GameObject buttonNoSave;
     
     [Header("Reset Menu")]
     [SerializeField]
     GameObject tittleContinueReset;
     [SerializeField]
     GameObject resetBackground;
-
-
-
+    [SerializeField]
+    GameObject buttonYesReset;
+    [SerializeField]
+    GameObject buttonNoReset;
 
     void OnEnable()
     {
@@ -109,11 +114,15 @@ public class Animation_Interface : MonoBehaviour
         //Making sure this is set as scale 0 as soon as the script is enabled
         LeanTween.scale(tittleContinueSave, Vector3.zero, 0.0f);
         LeanTween.scale(saveBackground, Vector3.zero, 0.0f);
+        LeanTween.scale(buttonYesSave, Vector3.zero, 0.0f);
+        LeanTween.scale(buttonNoSave, Vector3.zero, 0.0f);
         
         //RESET MENU
         //Making sure this is set as scale 0 as soon as the script is enabled
         LeanTween.scale(tittleContinueReset, Vector3.zero, 0.0f);
         LeanTween.scale(resetBackground, Vector3.zero, 0.0f);
+        LeanTween.scale(buttonYesReset, Vector3.zero, 0.0f);
+        LeanTween.scale(buttonNoReset, Vector3.zero, 0.0f);
 
         //Call funtion
         ChangeScaleTittleBackground();
@@ -213,6 +222,31 @@ public class Animation_Interface : MonoBehaviour
         LeanTween.moveLocalX(buttonsBackground_01, 0f, 1f);
     }
 
+    void AnimationSaveMenuIn()
+    {
+        LeanTween.scale(tittleContinueSave, Vector3.one, 1f);
+        LeanTween.scale(buttonYesSave, Vector3.one, 1f);
+        LeanTween.scale(buttonNoSave, Vector3.one, 1f);
+    }
+    void AnimationSaveMenuOut()
+    {
+        //As soon as the funtion is called the UI scale to zero
+        LeanTween.scale(saveBackground, Vector3.zero, 1f);
+    }
+
+    void AnimationResetMenuIn()
+    {
+        LeanTween.scale(tittleContinueReset, Vector3.one, 1f);
+        LeanTween.scale(buttonYesReset, Vector3.one, 1f);
+        LeanTween.scale(buttonNoReset, Vector3.one, 1f);
+    }
+
+   void AnimationResetMenuOut()
+    {
+        //As soon as the funtion is called the UI scale to zero
+        LeanTween.scale(resetBackground, Vector3.zero, 1f);
+    }
+
     //BUTTON FUNTIONS
     public void ButtonContinue()
     {
@@ -257,26 +291,29 @@ public class Animation_Interface : MonoBehaviour
 
     public void ButtonSave()
     {
-        LeanTween.scale(tittleContinueSave, Vector3.one, 1f);
-        LeanTween.scale(saveBackground, Vector3.one, 1f);
+        //As soon as the funtion is called the UI scale to one 
+        LeanTween.scale(saveBackground, Vector3.one, 1f).setOnComplete(AnimationSaveMenuIn);
+        
     }
 
     public void ButtonExitSaveInterface()
     {
         LeanTween.scale(tittleContinueSave, Vector3.zero, 1f);
-        LeanTween.scale(saveBackground, Vector3.zero, 1f);
+        LeanTween.scale(buttonYesSave, Vector3.zero, 1f);
+        LeanTween.scale(buttonNoSave, Vector3.zero, 1f).setOnComplete(AnimationSaveMenuOut);
     } 
     
     public void ButtonReset()
     {
-        LeanTween.scale(tittleContinueReset, Vector3.one, 1f);
-        LeanTween.scale(resetBackground, Vector3.one, 1f);
+        //As soon as the funtion is called the UI scale to one
+        LeanTween.scale(resetBackground, Vector3.one, 1f).setOnComplete(AnimationResetMenuIn);
     }
 
     public void ButtonExitResetInterface()
     {
         LeanTween.scale(tittleContinueReset, Vector3.zero, 1f);
-        LeanTween.scale(resetBackground, Vector3.zero, 1f);
+        LeanTween.scale(buttonYesReset, Vector3.zero, 1f);
+        LeanTween.scale(buttonNoReset, Vector3.zero, 1f).setOnComplete(AnimationResetMenuOut);
     }
 }
 
