@@ -224,27 +224,27 @@ public class Animation_Interface : MonoBehaviour
 
     void AnimationSaveMenuIn()
     {
-        LeanTween.scale(tittleContinueSave, Vector3.one, 1f);
-        LeanTween.scale(buttonYesSave, Vector3.one, 1f);
-        LeanTween.scale(buttonNoSave, Vector3.one, 1f);
+        LeanTween.scale(tittleContinueSave, Vector3.one, 0.75f);
+        LeanTween.scale(buttonYesSave, Vector3.one, 0.75f);
+        LeanTween.scale(buttonNoSave, Vector3.one, 0.75f);
     }
     void AnimationSaveMenuOut()
     {
         //As soon as the funtion is called the UI scale to zero
-        LeanTween.scale(saveBackground, Vector3.zero, 1f);
+        LeanTween.scale(saveBackground, Vector3.zero, 0.5f);
     }
 
     void AnimationResetMenuIn()
     {
-        LeanTween.scale(tittleContinueReset, Vector3.one, 1f);
-        LeanTween.scale(buttonYesReset, Vector3.one, 1f);
-        LeanTween.scale(buttonNoReset, Vector3.one, 1f);
+        LeanTween.scale(tittleContinueReset, Vector3.one, 0.75f);
+        LeanTween.scale(buttonYesReset, Vector3.one, 0.75f);
+        LeanTween.scale(buttonNoReset, Vector3.one, 0.75f);
     }
 
    void AnimationResetMenuOut()
     {
         //As soon as the funtion is called the UI scale to zero
-        LeanTween.scale(resetBackground, Vector3.zero, 1f);
+        LeanTween.scale(resetBackground, Vector3.zero, 0.75f);
     }
 
     //BUTTON FUNTIONS
@@ -292,28 +292,31 @@ public class Animation_Interface : MonoBehaviour
     public void ButtonSave()
     {
         //As soon as the funtion is called the UI scale to one 
-        LeanTween.scale(saveBackground, Vector3.one, 1f).setOnComplete(AnimationSaveMenuIn);
+        LeanTween.scale(saveBackground, Vector3.one, 0.75f).setOnComplete(AnimationSaveMenuIn);
         
     }
 
     public void ButtonExitSaveInterface()
     {
-        LeanTween.scale(tittleContinueSave, Vector3.zero, 1f);
-        LeanTween.scale(buttonYesSave, Vector3.zero, 1f);
-        LeanTween.scale(buttonNoSave, Vector3.zero, 1f).setOnComplete(AnimationSaveMenuOut);
+        LeanTween.scale(tittleContinueSave, Vector3.zero, 0.75f);
+        LeanTween.scale(buttonYesSave, Vector3.zero, 0.75f);
+        LeanTween.scale(buttonNoSave, Vector3.zero, 0.75f).setOnComplete(AnimationSaveMenuOut);
     } 
     
     public void ButtonReset()
     {
         //As soon as the funtion is called the UI scale to one
-        LeanTween.scale(resetBackground, Vector3.one, 1f).setOnComplete(AnimationResetMenuIn);
+        LeanTween.scale(resetBackground, Vector3.one, 0.75f).setOnComplete(AnimationResetMenuIn);
     }
 
     public void ButtonExitResetInterface()
     {
-        LeanTween.scale(tittleContinueReset, Vector3.zero, 1f);
-        LeanTween.scale(buttonYesReset, Vector3.zero, 1f);
-        LeanTween.scale(buttonNoReset, Vector3.zero, 1f).setOnComplete(AnimationResetMenuOut);
+        LeanTween.scale(tittleContinueReset, Vector3.zero, 0.75f);
+        LeanTween.scale(buttonYesReset, Vector3.zero, 0.75f);
+        LeanTween.scale(buttonNoReset, Vector3.zero, 0.75f).setOnComplete(AnimationResetMenuOut);
     }
+
+    // Hacer función nueva donde el botón de Yes y el de No animen una línea donde se dice si se ha guardado o no los cambios. No hace falta gran cosa, I guess
+    // 
 }
 
