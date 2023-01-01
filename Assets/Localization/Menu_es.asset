@@ -86,6 +86,10 @@ MonoBehaviour:
     m_Localized: "La configuraci\xF3n actual va a ser formateada.\n\xBFQuiere continuar?"
     m_Metadata:
       m_Items: []
+  - m_Id: 7340239638794240
+    m_Localized: Jugar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
