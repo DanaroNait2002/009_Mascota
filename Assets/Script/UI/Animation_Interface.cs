@@ -77,6 +77,13 @@ public class Animation_Interface : MonoBehaviour
     [SerializeField]
     GameObject buttonNoReset;
 
+    [Header("Feed_Minigame")]
+    [SerializeField]
+    GameObject buttonRight;
+    [SerializeField]
+    GameObject buttonLeft;
+
+
     void OnEnable()
     {
         //INITAL INTERFACE
@@ -123,6 +130,11 @@ public class Animation_Interface : MonoBehaviour
         LeanTween.scale(resetBackground, Vector3.zero, 0.0f);
         LeanTween.scale(buttonYesReset, Vector3.zero, 0.0f);
         LeanTween.scale(buttonNoReset, Vector3.zero, 0.0f);
+
+        //FEED MINIGAME
+        //Making sure this is set as scale 0 as soon as the script is enabled
+        LeanTween.scale(buttonRight, Vector3.zero, 0.0f);
+        LeanTween.scale(buttonLeft, Vector3.zero, 0.0f);
 
         //Call funtion
         ChangeScaleTittleBackground();
@@ -242,9 +254,24 @@ public class Animation_Interface : MonoBehaviour
     }
 
    void AnimationResetMenuOut()
-    {
+   {
         //As soon as the funtion is called the UI scale to zero
         LeanTween.scale(resetBackground, Vector3.zero, 0.75f);
+   }
+
+    void AnimationFeedMinigameButton()
+    {
+        //As soon as the funtion is called the UI scale to one
+        LeanTween.scale(buttonRight, Vector3.one, 0.5f);
+        LeanTween.scale(buttonLeft, Vector3.one, 0.5f);
+    }
+
+    void AnimationFeedMaxigameButtonOut()
+    {
+        //HACER ALGO CON ESTO PARA SALIR DE LA UI DEL MINIJUEGO
+        //As soon as the funtion is called the UI scale to zero
+        LeanTween.scale(buttonRight, Vector3.zero, 0.5f);
+        LeanTween.scale(buttonLeft, Vector3.zero, 0.5f);
     }
 
     //BUTTON FUNTIONS
@@ -318,5 +345,14 @@ public class Animation_Interface : MonoBehaviour
 
     // Hacer función nueva donde el botón de Yes y el de No animen una línea donde se dice si se ha guardado o no los cambios. No hace falta gran cosa, I guess
     // 
+
+    public void ButtonFeed()
+    {
+        //As soon as the funtion is called the UI moves out the screen
+        LeanTween.moveLocalY(buttonsBackground_02, -2063f, 0.5f);
+        LeanTween.moveLocalX(buttonSettings_02, 1087f, 0.5f);
+
+        AnimationFeedMinigameButton();
+    }
 }
 
