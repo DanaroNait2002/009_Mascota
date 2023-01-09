@@ -38,6 +38,18 @@ public class Feed : MonoBehaviour
     [SerializeField]
     GameObject king;
 
+    [Header("Obstacles")]
+    [SerializeField]
+    GameObject obstacle01;
+    [SerializeField]
+    GameObject obstacle02;
+
+    [Header("Food")]
+    [SerializeField]
+    GameObject food01;
+    [SerializeField]
+    GameObject food02;
+
     [Header("Default Minigame Values")]
     [SerializeField]
     StateSelector currentState = StateSelector.Waiting;
@@ -53,18 +65,9 @@ public class Feed : MonoBehaviour
     [Header("Minigame stats")]
     [SerializeField]
     float speed = 50f;
+    [SerializeField]
+    int i = 0;
 
-    [Header("Obstacles")]
-    [SerializeField]
-    GameObject obstacle01;
-    [SerializeField]
-    GameObject obstacle02;
-
-    [Header("Food")]
-    [SerializeField]
-    GameObject food01;
-    [SerializeField]
-    GameObject food02;
 
     void Update()
     {
@@ -81,7 +84,13 @@ public class Feed : MonoBehaviour
             if (timer <= 30f)
             {
                 timer += Time.deltaTime;
-                SummonFood();
+                
+                if (i <= timer)
+                {
+                    Vector3 position = new Vector3(Random.Range(-2.65f, 2.65f), 6.70f, -1);
+                    Instantiate(food01, position, Quaternion.identity);
+                    i += 3;
+                }
             }
             if (timer >= 30f)
             {                
@@ -94,9 +103,24 @@ public class Feed : MonoBehaviour
         }    
     }
     
-    public void SummonFood()
+    public void SummonFood01()
     {
         Instantiate(food01, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
+    }
+
+    public void SummonFood02() 
+    {
+        Instantiate(food02, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
+    }
+
+    public void SummonObstacle01()
+    {
+        Instantiate(obstacle01, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
+    }
+
+    public void SummonObstacle02()
+    {
+        Instantiate(obstacle02, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
     }
 
     public void ButtonFeed()
