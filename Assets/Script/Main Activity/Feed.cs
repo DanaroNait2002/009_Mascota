@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Feed : MonoBehaviour
 {
@@ -42,6 +43,12 @@ public class Feed : MonoBehaviour
     StateSelector currentState = StateSelector.Waiting;
     [SerializeField]
     float timer = 0f;
+    [SerializeField]
+    float time;
+    [SerializeField]
+    float timeMin;
+    [SerializeField]
+    float timeMax;
 
     [Header("Minigame stats")]
     [SerializeField]
@@ -71,13 +78,11 @@ public class Feed : MonoBehaviour
 
         if (currentState == StateSelector.Playing)
         {
-            if (timer <= 30f) 
+            if (timer <= 30f)
             {
                 timer += Time.deltaTime;
-                
-
+                SummonFood();
             }
-
             if (timer >= 30f)
             {                
                 LeanTween.moveLocalX(baby, 0f, 1f);
@@ -87,6 +92,11 @@ public class Feed : MonoBehaviour
                 currentState = StateSelector.Waiting;
             }
         }    
+    }
+    
+    public void SummonFood()
+    {
+        Instantiate(food01, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
     }
 
     public void ButtonFeed()
