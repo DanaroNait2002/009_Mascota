@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading;
 
 public class Animation_Interface : MonoBehaviour
 {
@@ -79,10 +80,13 @@ public class Animation_Interface : MonoBehaviour
 
     [Header("Feed_Minigame")]
     [SerializeField]
+    bool minigameActive = false;
+    [SerializeField]
     GameObject buttonRight;
     [SerializeField]
     GameObject buttonLeft;
-
+    [SerializeField]
+    float timer;
 
     void OnEnable()
     {
@@ -138,6 +142,20 @@ public class Animation_Interface : MonoBehaviour
 
         //Call funtion
         ChangeScaleTittleBackground();
+    }
+
+    private void Update()
+    {
+        if (minigameActive)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 30)
+            {
+                minigameActive = false;
+                timer = 0;
+                AnimationFeedMinigameButtonOut();
+            }
+        }
     }
 
 
@@ -264,14 +282,14 @@ public class Animation_Interface : MonoBehaviour
         //As soon as the funtion is called the UI scale to one
         LeanTween.scale(buttonRight, Vector3.one, 0.5f);
         LeanTween.scale(buttonLeft, Vector3.one, 0.5f);
+        minigameActive = true;
     }
 
-    void AnimationFeedMaxigameButtonOut()
+    void AnimationFeedMinigameButtonOut()
     {
-        //HACER ALGO CON ESTO PARA SALIR DE LA UI DEL MINIJUEGO
         //As soon as the funtion is called the UI scale to zero
         LeanTween.scale(buttonRight, Vector3.zero, 0.5f);
-        LeanTween.scale(buttonLeft, Vector3.zero, 0.5f);
+        LeanTween.scale(buttonLeft, Vector3.zero, 0.5f).setOnComplete(AnimationActivationMainMenu);
     }
 
     //BUTTON FUNTIONS
