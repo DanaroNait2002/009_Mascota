@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Love_Points : MonoBehaviour
 {
-    
+    public static Love_Points instance;
     public enum StateSelector
     {
         Waiting,
@@ -32,6 +32,18 @@ public class Love_Points : MonoBehaviour
     [SerializeField]
     GameObject king;
 
+    private void Awake()
+    {
+        if (Love_Points.instance == null)
+        {
+            Love_Points.instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     public void Start()
     {
         lovePoints = PlayerPrefs.GetInt("lovePoints", 1);
@@ -39,13 +51,15 @@ public class Love_Points : MonoBehaviour
         CurrentSlime();
     }
 
-    public void Update()
+    public void lovePointsManager(int points)
     {
-        PlayerPrefs.SetInt("lovePoints", lovePoints);
-        PlayerPrefs.Save();
+        lovePoints += points;
 
         LovePointsChecker();
         CurrentSlime();
+
+        PlayerPrefs.SetInt("lovePoints", lovePoints);
+        PlayerPrefs.Save();
     }
 
     public void CurrentSlime()

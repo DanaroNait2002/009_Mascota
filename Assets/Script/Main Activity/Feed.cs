@@ -30,25 +30,7 @@ public class Feed : MonoBehaviour
 
     [Header("Slimes")]
     [SerializeField]
-    GameObject baby;
-    [SerializeField]
-    GameObject junior;
-    [SerializeField]
-    GameObject senior;
-    [SerializeField]
-    GameObject king;
-
-    [Header("Obstacles")]
-    [SerializeField]
-    GameObject obstacle01;
-    [SerializeField]
-    GameObject obstacle02;
-
-    [Header("Food")]
-    [SerializeField]
-    GameObject food01;
-    [SerializeField]
-    GameObject food02;
+    GameObject slime;
 
     [Header("Default Minigame Values")]
     [SerializeField]
@@ -57,10 +39,6 @@ public class Feed : MonoBehaviour
     float timer = 0f;
     [SerializeField]
     float time;
-    [SerializeField]
-    float timeMin;
-    [SerializeField]
-    float timeMax;
 
     [Header("Minigame stats")]
     [SerializeField]
@@ -70,7 +48,6 @@ public class Feed : MonoBehaviour
     [SerializeField]
     float[] spawner = { 7f, 15f, 17f, 20f, 24f, 25f, 28f };
     //                   0   1    2    3    4    5    6  = 7
-    //float[] spawner = { 28f, 25f, 24f, 20f, 17f, 15f, 7f };
     [SerializeField]
     GameObject[] obtainable = new GameObject[7];
 
@@ -93,15 +70,13 @@ public class Feed : MonoBehaviour
 
                 if (i < spawner.Length)
                 {
-                    Debug.Log(spawner[i]);
-                    Debug.Log(i);
-
                     if (timer >= spawner[i])
                     {
                         Vector3 position = new Vector3(Random.Range(-2.65f, 2.65f), 6.70f, -1);
                         Instantiate(obtainable[i], position, Quaternion.identity);
                         i++;
-                        Debug.Log("Dentro del if");
+
+                        
                     }
                 }
             }
@@ -109,33 +84,10 @@ public class Feed : MonoBehaviour
             {
                 i = 0;
             
-                LeanTween.moveLocalX(baby, 0f, 1f);
-                LeanTween.moveLocalX(junior, 0f, 1f);
-                LeanTween.moveLocalX(senior, 0f, 1f);
-                LeanTween.moveLocalX(king, 0f, 1f);
+                LeanTween.moveLocalX(slime, 0f, 1f);
                 currentState = StateSelector.Waiting;
             }
         }    
-    }
-    
-    public void SummonFood01()
-    {
-        Instantiate(food01, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
-    }
-
-    public void SummonFood02() 
-    {
-        Instantiate(food02, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
-    }
-
-    public void SummonObstacle01()
-    {
-        Instantiate(obstacle01, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
-    }
-
-    public void SummonObstacle02()
-    {
-        Instantiate(obstacle02, new Vector3(Random.Range(-3f, 3f), 6.7f, -1f), Quaternion.identity);
     }
 
     public void ButtonFeed()
@@ -145,17 +97,11 @@ public class Feed : MonoBehaviour
 
     public void ButtonRight() 
     {
-        baby.transform.position += Vector3.right * speed * Time.deltaTime;
-        junior.transform.position += Vector3.right * (speed - 10f) * Time.deltaTime;
-        senior.transform.position += Vector3.right * (speed - 20f) * Time.deltaTime;
-        king.transform.position += Vector3.right * (speed - 30f) * Time.deltaTime;
+        slime.transform.position += Vector3.right * speed * Time.deltaTime;
     }
 
     public void ButtonLeft() 
     {
-        baby.transform.position += Vector3.left * speed * Time.deltaTime;
-        junior.transform.position += Vector3.left * (speed - 10f) * Time.deltaTime;
-        senior.transform.position += Vector3.left * (speed - 20f) * Time.deltaTime;
-        king.transform.position += Vector3.left * (speed - 30f) * Time.deltaTime;
+        slime.transform.position += Vector3.left * speed * Time.deltaTime;
     }
 }
