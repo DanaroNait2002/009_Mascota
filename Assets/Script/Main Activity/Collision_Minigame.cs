@@ -10,11 +10,13 @@ public class Collision_Minigame : MonoBehaviour
     {
         if (slime.CompareTag("Foods"))
         {
+            Debug.Log("Food");
             Love_Points.instance.lovePointsManager(3);
         }
 
         if (slime.CompareTag("Obstacles"))
         {
+            Debug.Log("Obstacle");
             Love_Points.instance.lovePointsManager(-1);
         }
     }

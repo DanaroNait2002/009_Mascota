@@ -7566,13 +7566,13 @@ MonoBehaviour:
   speed: 50
   i: 0
   spawner:
-  - 7
-  - 12
-  - 15
+  - 2
+  - 6
+  - 10
+  - 14
   - 18
   - 22
-  - 25
-  - 28
+  - 26
   obtainable:
   - {fileID: 3783744457015695445, guid: 61c4922ca48483c44acb97f4c36e451b, type: 3}
   - {fileID: 8539592483744883666, guid: f8a625b7876b09741bad3d6f10e241ea, type: 3}
