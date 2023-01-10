@@ -67,6 +67,12 @@ public class Feed : MonoBehaviour
     float speed = 50f;
     [SerializeField]
     int i = 0;
+    [SerializeField]
+    float[] spawner = { 7f, 15f, 17f, 20f, 24f, 25f, 28f };
+    //                   0   1    2    3    4    5    6  = 7
+    //float[] spawner = { 28f, 25f, 24f, 20f, 17f, 15f, 7f };
+    [SerializeField]
+    GameObject[] obtainable = new GameObject[7];
 
 
     void Update()
@@ -84,16 +90,25 @@ public class Feed : MonoBehaviour
             if (timer <= 30f)
             {
                 timer += Time.deltaTime;
-                
-                if (i <= timer)
+
+                if (i < spawner.Length)
                 {
-                    Vector3 position = new Vector3(Random.Range(-2.65f, 2.65f), 6.70f, -1);
-                    Instantiate(food01, position, Quaternion.identity);
-                    i += 3;
+                    Debug.Log(spawner[i]);
+                    Debug.Log(i);
+
+                    if (timer >= spawner[i])
+                    {
+                        Vector3 position = new Vector3(Random.Range(-2.65f, 2.65f), 6.70f, -1);
+                        Instantiate(obtainable[i], position, Quaternion.identity);
+                        i++;
+                        Debug.Log("Dentro del if");
+                    }
                 }
             }
             if (timer >= 30f)
-            {                
+            {
+                i = 0;
+            
                 LeanTween.moveLocalX(baby, 0f, 1f);
                 LeanTween.moveLocalX(junior, 0f, 1f);
                 LeanTween.moveLocalX(senior, 0f, 1f);
