@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 605317093624728906}
   - component: {fileID: 3423426181916637568}
   - component: {fileID: -7688527441121385287}
-  - component: {fileID: -4044831224120128735}
-  - component: {fileID: 5281744974309968406}
+  - component: {fileID: 5240554480448619187}
   m_Layer: 0
   m_Name: Lamb leg 1
   m_TagString: Foods
@@ -99,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5518541, y: 0.44653964, z: 0.78801954}
   m_Center: {x: 0.008857831, y: 0.22326958, z: -0.044129293}
---- !u!54 &-4044831224120128735
+--- !u!54 &5240554480448619187
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,16 +114,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5281744974309968406
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3783744457015695445}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5518541, y: 0.44653964, z: 0.78801954}
-  m_Center: {x: 0.008857831, y: 0.22326958, z: -0.044129293}

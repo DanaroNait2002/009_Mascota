@@ -87,6 +87,18 @@ MonoBehaviour:
     m_Key: ButtonPlay
     m_Metadata:
       m_Items: []
+  - m_Id: 10616362002845696
+    m_Key: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10638427497992192
+    m_Key: LabelHungry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10638598172610560
+    m_Key: LabelGameOver
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

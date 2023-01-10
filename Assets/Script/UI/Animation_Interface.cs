@@ -6,6 +6,8 @@ using System.Threading;
 
 public class Animation_Interface : MonoBehaviour
 {
+    public static Animation_Interface instance;
+
     [Header("Initial Interface")]
     [SerializeField]
     GameObject tittleBackground;
@@ -13,6 +15,8 @@ public class Animation_Interface : MonoBehaviour
     GameObject tittle;
     [SerializeField]
     GameObject buttonsBackground_01;
+    [SerializeField]
+    GameObject buttonNewGame;
     [SerializeField]
     GameObject buttonContinue;
     [SerializeField]
@@ -25,6 +29,10 @@ public class Animation_Interface : MonoBehaviour
     GameObject buttonsBackground_02;
     [SerializeField]
     GameObject buttonSettings_02;
+    [SerializeField]
+    GameObject labelHungry;
+    [SerializeField]
+    GameObject labelGameOver;
 
     [Header("Settings Menu")]
     [SerializeField]
@@ -88,6 +96,18 @@ public class Animation_Interface : MonoBehaviour
     [SerializeField]
     float timer;
 
+    private void Awake()
+    {
+        if (Animation_Interface.instance == null)
+        {
+            Animation_Interface.instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     void OnEnable()
     {
         //INITAL INTERFACE
@@ -95,6 +115,7 @@ public class Animation_Interface : MonoBehaviour
         LeanTween.scale(tittleBackground, Vector3.zero, 0.0f);
         LeanTween.scale(tittle, Vector3.zero, 0.0f);
         LeanTween.scale(buttonsBackground_01, Vector3.zero, 0.0f);
+        LeanTween.scale(buttonNewGame, Vector3.zero, 0.0f);
         LeanTween.scale(buttonContinue, Vector3.zero, 0.0f);
         LeanTween.scale(buttonSettings_01, Vector3.zero, 0.0f);
         LeanTween.scale(buttonExit, Vector3.zero, 0.0f);
@@ -120,6 +141,8 @@ public class Animation_Interface : MonoBehaviour
         //The UI that we don't want in the screen is moved out
         LeanTween.moveLocalY(buttonsBackground_02, -2063f, 0.0f);
         LeanTween.moveLocalX(buttonSettings_02, 1087f, 0.0f);
+        LeanTween.moveLocalY(labelHungry, 1900f, 0.0f);
+        LeanTween.scale(labelGameOver, Vector3.zero, 0.0f);
 
         //SAVE MENU
         //Making sure this is set as scale 0 as soon as the script is enabled
@@ -158,7 +181,6 @@ public class Animation_Interface : MonoBehaviour
         }
     }
 
-
     //INITIAL INTERFACE
     void ChangeScaleTittleBackground()
     {
@@ -175,7 +197,13 @@ public class Animation_Interface : MonoBehaviour
     void ChangeScaleButtonBackground()
     {
         //The button's background scale to one as soon as the tittle complete scale to one
-        LeanTween.scale(buttonsBackground_01, Vector3.one, 0.5f).setEaseInOutBack().setOnComplete(ChangeScaleButtonContinue);
+        LeanTween.scale(buttonsBackground_01, Vector3.one, 0.5f).setEaseInOutBack().setOnComplete(ChangeScaleButtonNewGame);
+    }
+
+    void ChangeScaleButtonNewGame()
+    {
+        //The New Game button scale to one as soon as the background complete scale to one
+        LeanTween.scale(buttonContinue, Vector3.one, 0.5f).setEaseInOutBack().setOnComplete(ChangeScaleButtonContinue);
     }
 
     void ChangeScaleButtonContinue()
@@ -290,6 +318,26 @@ public class Animation_Interface : MonoBehaviour
         //As soon as the funtion is called the UI scale to zero
         LeanTween.scale(buttonRight, Vector3.zero, 0.5f);
         LeanTween.scale(buttonLeft, Vector3.zero, 0.5f).setOnComplete(AnimationActivationMainMenu);
+    }
+
+    public void AnimationGameOver()
+    {
+        LeanTween.scale(labelGameOver, Vector3.one, 0.75f);
+    }
+
+    public void AnimationGameOverOut()
+    {
+        LeanTween.scale(labelGameOver, Vector3.zero, 0.25f);
+    }
+
+    public void AnimationHungry()
+    {
+        LeanTween.moveLocalY(labelHungry, 1543.5f, 0.75f);
+    }
+
+    public void AnimationHungryOut()
+    {
+        LeanTween.moveLocalY(labelHungry, 1900f, 0.75f);
     }
 
     //BUTTON FUNTIONS

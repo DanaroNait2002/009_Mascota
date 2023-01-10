@@ -96,6 +96,22 @@ MonoBehaviour:
     m_Localized: Play
     m_Metadata:
       m_Items: []
+  - m_Id: 10616362002845696
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10638427497992192
+    m_Localized: Your pet is hungry, feed it!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10638598172610560
+    m_Localized: 'Game Over
+
+      Your pet died
+
+      Try again'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

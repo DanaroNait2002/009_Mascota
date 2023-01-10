@@ -71,6 +71,7 @@ public class Love_Points : MonoBehaviour
                 junior.SetActive(false);
                 senior.SetActive(false);
                 king.SetActive(false);
+                //Animation_Interface.instance.AnimationGameOver();
                 break;
 
             case StateSelector.Baby:
@@ -131,4 +132,16 @@ public class Love_Points : MonoBehaviour
             currentState= StateSelector.King;
         }
     }
+
+    public void DeleteLovePoints()
+    {
+        lovePoints= 1;
+
+        LovePointsChecker();
+        CurrentSlime();
+
+        PlayerPrefs.SetInt("lovePoints", lovePoints);
+        PlayerPrefs.Save();
+    }
+    
 }

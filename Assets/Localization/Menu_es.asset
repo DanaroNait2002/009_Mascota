@@ -90,6 +90,18 @@ MonoBehaviour:
     m_Localized: Jugar
     m_Metadata:
       m_Items: []
+  - m_Id: 10616362002845696
+    m_Localized: Nueva Partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10638427497992192
+    m_Localized: "Tu mascota tiene hambre, \xA1dale de comer!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10638598172610560
+    m_Localized: "Fin de la Partida\nTu mascota ha muerto\nInt\xE9ntalo de nuevo"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
