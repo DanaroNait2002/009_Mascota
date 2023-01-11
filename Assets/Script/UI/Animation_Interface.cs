@@ -88,13 +88,9 @@ public class Animation_Interface : MonoBehaviour
 
     [Header("Feed_Minigame")]
     [SerializeField]
-    bool minigameActive = false;
-    [SerializeField]
     GameObject buttonRight;
     [SerializeField]
     GameObject buttonLeft;
-    [SerializeField]
-    float timer;
 
     private void Awake()
     {
@@ -167,20 +163,6 @@ public class Animation_Interface : MonoBehaviour
         ChangeScaleTittleBackground();
     }
 
-    private void Update()
-    {
-        if (minigameActive)
-        {
-            timer += Time.deltaTime;
-            if (timer >= 30)
-            {
-                minigameActive = false;
-                timer = 0;
-                AnimationFeedMinigameButtonOut();
-            }
-        }
-    }
-
     //INITIAL INTERFACE
     void ChangeScaleTittleBackground()
     {
@@ -203,7 +185,7 @@ public class Animation_Interface : MonoBehaviour
     void ChangeScaleButtonNewGame()
     {
         //The New Game button scale to one as soon as the background complete scale to one
-        LeanTween.scale(buttonContinue, Vector3.one, 0.5f).setEaseInOutBack().setOnComplete(ChangeScaleButtonContinue);
+        LeanTween.scale(buttonNewGame, Vector3.one, 0.5f).setEaseInOutBack().setOnComplete(ChangeScaleButtonContinue);
     }
 
     void ChangeScaleButtonContinue()
@@ -310,10 +292,9 @@ public class Animation_Interface : MonoBehaviour
         //As soon as the funtion is called the UI scale to one
         LeanTween.scale(buttonRight, Vector3.one, 0.5f);
         LeanTween.scale(buttonLeft, Vector3.one, 0.5f);
-        minigameActive = true;
     }
 
-    void AnimationFeedMinigameButtonOut()
+    public void AnimationFeedMinigameButtonOut()
     {
         //As soon as the funtion is called the UI scale to zero
         LeanTween.scale(buttonRight, Vector3.zero, 0.5f);

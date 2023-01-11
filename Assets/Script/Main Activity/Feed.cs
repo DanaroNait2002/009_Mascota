@@ -7,22 +7,6 @@ using UnityEngine.UIElements;
 
 public class Feed : MonoBehaviour
 {
-    /*
-    pA = puntos de amor 
-    
-    Al pulsar botón damos de comer en un minijuego donde cae comida y obstáculos:
-    - El minijuego durará 30s
-     - 4 comida (+3pA por cada)
-     - 3 obstáculos (-1pA por cada)
-    Movemos a la mascosta con dos botones
-
-    Se pueden acumular hasta 12pA
-
-    Si le damos sin hambre crecerá en el eje X
-
-    Por cada 20m con hambre perderá 1pA
-    */
-
     public enum StateSelector
     {
         Waiting,
@@ -78,6 +62,7 @@ public class Feed : MonoBehaviour
             
                 LeanTween.moveLocalX(slime, 0f, 1f);
                 currentState = StateSelector.Waiting;
+                Animation_Interface.instance.AnimationFeedMinigameButtonOut();
             }
         }    
     }

@@ -31,16 +31,19 @@ public class Collision_Minigame : MonoBehaviour
             {
                 Hungry.instance.hungerPoints += 3;
                 Love_Points.instance.lovePointsManager(3);
+                Animation_Interface.instance.AnimationHungryOut();
             }
             else
             {
                 scaleX = transform.localScale.x;
                 transform.localScale = new Vector3(scaleX + 0.1f, 1, 1);
             }
+            slime.gameObject.SetActive(false);
         }
 
         if (slime.CompareTag("Obstacles"))
         {
+            slime.gameObject.SetActive(false);
             Love_Points.instance.lovePointsManager(-1);
         }
     }
