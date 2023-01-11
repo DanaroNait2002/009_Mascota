@@ -10,6 +10,7 @@ public class Collision_Minigame : MonoBehaviour
     [SerializeField]
     float scaleX;
 
+    //Making this script usable in other scripts
     private void Awake()
     {
         if (Collision_Minigame.instance == null)
@@ -28,7 +29,7 @@ public class Collision_Minigame : MonoBehaviour
         if (slime.CompareTag("Foods"))
         {
             if (Hungry.instance.IsHungry())
-            {
+            { 
                 Hungry.instance.hungerPoints += 3;
                 Love_Points.instance.lovePointsManager(3);
                 Animation_Interface.instance.AnimationHungryOut();

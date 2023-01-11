@@ -6,6 +6,7 @@ using UnityEngine;
 public class Love_Points : MonoBehaviour
 {
     public static Love_Points instance;
+
     public enum StateSelector
     {
         Waiting,
@@ -34,6 +35,7 @@ public class Love_Points : MonoBehaviour
 
     private void Awake()
     {
+        //This makes the script available for using in other scripts
         if (Love_Points.instance == null)
         {
             Love_Points.instance = this;
@@ -46,11 +48,13 @@ public class Love_Points : MonoBehaviour
 
     public void Start()
     {
+        //This load the info from previous interactions and if there's none then set the amount of pA to 1
         lovePoints = PlayerPrefs.GetInt("lovePoints", 1);
         LovePointsChecker();
         CurrentSlime();
     }
 
+    //This funtion edit the value of pA, compare the info and save the info every time after called
     public void lovePointsManager(int points)
     {
         lovePoints += points;
@@ -64,6 +68,7 @@ public class Love_Points : MonoBehaviour
 
     public void CurrentSlime()
     {
+        //This makes the Slime sprites visible according to the state
         switch (currentState) 
         {
             case StateSelector.Death:
@@ -104,6 +109,7 @@ public class Love_Points : MonoBehaviour
         }
     }
 
+    //This funtion select an state depending on the amount of pA the player has
     public void LovePointsChecker()
     {
 
@@ -133,6 +139,7 @@ public class Love_Points : MonoBehaviour
         }
     }
 
+    //This funtion delete all saves
     public void DeleteLovePoints()
     {
         lovePoints= 1;
