@@ -9,59 +9,62 @@ public class Pet : MonoBehaviour
     DateTime timeTouching;
     bool alreadyTouch = false;
 
-    int timeToCare = 20;        //tiempo para conseguir puntos al acariciar
-    int timeToLosePoints = 30;  //tiempo para perder puntos por no ser acariciado
-    int timeWhitoutPet = 24;    //tiempo sin ser acariciado
+    //Time left to obtain pA
+    int timeToPet = 2;
+    //Time left to loose pA
+    int timeToLosePoints = 30;
+    //Time without being pet
+    int timeWhitoutPet = 24;
 
-    string hourPetString;               //tiempo para conseguir puntos al acariciar
-    string lastTimeLosePointsPet;       //tiempo para perder puntos por no ser acariciado
-    string lastTimePetString;           //tiempo sin ser acariciado
+    //Time left to obtain pA
+    string hourPetString;
+    //Time left to loose pA
+    string lastTimeLosePointsPet;
+    //Time without being pet
+    string lastTimePetString;
 
     [SerializeField]
     GameObject particles, slime;
 
-    // Start is called before the first frame update
     void Start()
     {
         lastTimeLosePointsPet = PlayerPrefs.GetString("lastTimeLosePointsPet", DateTime.Now.AddSeconds(timeToLosePoints).ToString());
-        hourPetString = PlayerPrefs.GetString("hourPetString", DateTime.Now.AddSeconds(timeToCare).ToString());
+        hourPetString = PlayerPrefs.GetString("hourPetString", DateTime.Now.AddHours(timeToPet).ToString());
         lastTimePetString = PlayerPrefs.GetString("lastTimePetString", DateTime.Now.AddSeconds(timeWhitoutPet).ToString());
-
-        Debug.Log(lastTimeLosePointsPet + "lastTimeLosePointsPet");
-        Debug.Log(hourPetString + "hourPetString");
-        Debug.Log(lastTimePetString + "lastTimePetString");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (NoPet() && CanLosePoints())
         {
-            Debug.Log("if noPet && canLosePoints");
-            //Animation.instance.CanPetText(CanPet());
             Love_Points.instance.lovePointsManager(-1);
             lastTimeLosePointsPet = DateTime.Now.ToString();
             PlayerPrefs.SetString("lastTimeLosePointsPet", lastTimeLosePointsPet);
-            Debug.Log("save lastTimeLosePointsPet");
             PlayerPrefs.Save();
         }
 
+        //If the script detects a click
         if ((Input.GetMouseButton(0)) || (Input.touchCount >= 1 && Input.GetTouch(0).phase == TouchPhase.Moved))
         {
             Vector3 pos = Input.mousePosition;
+            //In case the app is running on Android
             if (Application.platform == RuntimePlatform.Android)
             {
                 pos = Input.GetTouch(0).position;
             }
 
+            //Raycast info
             Ray ray = Camera.main.ScreenPointToRay(pos);
             RaycastHit hitInfo;
+
             if (Physics.Raycast(ray, out hitInfo))
             {
-                if (hitInfo.collider.tag.Equals("Player"))
+                //If the Raycast hits a slime
+                if (hitInfo.collider.tag.Equals("Slime"))
                 {
                     if (!alreadyTouch)
                     {
+
                         timeTouching = DateTime.Now.AddSeconds(timeToTouch);
                         alreadyTouch = true;
                     }
@@ -70,21 +73,16 @@ public class Pet : MonoBehaviour
                     {
                         if (CanPet())
                         {
-                            Debug.Log("if canPet");
                             Love_Points.instance.lovePointsManager(10);
-                            hourPetString = DateTime.Now.AddSeconds(timeToCare).ToString();
+                            hourPetString = DateTime.Now.AddHours(timeToPet).ToString();
                             lastTimePetString = DateTime.Now.AddSeconds(timeWhitoutPet).ToString();
 
                             PlayerPrefs.SetString("hourPetString", hourPetString);
                             PlayerPrefs.SetString("lastTimePetString", lastTimePetString);
                             PlayerPrefs.Save();
-
-                            Debug.Log("save hourPetString");
-                            Debug.Log("save lastTimePetString");
-
-                            //Animation.instance.CanPetText(CanPet());
                         }
 
+                        //Instantiate of a particle system
                         Instantiate(particles, new Vector3(slime.transform.position.x, slime.transform.position.y + 1, slime.transform.position.z), Quaternion.identity);
                         alreadyTouch = false;
                     }
@@ -110,6 +108,4 @@ public class Pet : MonoBehaviour
         DateTime lastTimeLosePoints = DateTime.Parse(lastTimeLosePointsPet);
         return lastTimeLosePoints.AddSeconds(timeToLosePoints) < DateTime.Now;
     }
-
-
 }

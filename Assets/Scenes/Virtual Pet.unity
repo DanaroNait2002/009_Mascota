@@ -8249,6 +8249,7 @@ GameObject:
   - component: {fileID: 1825787871}
   - component: {fileID: 1825787872}
   - component: {fileID: 1825787873}
+  - component: {fileID: 1825787874}
   - component: {fileID: 1825787869}
   m_Layer: 0
   m_Name: GAME CONTROLLER
@@ -8303,10 +8304,8 @@ MonoBehaviour:
   resetBackground: {fileID: 1600852325}
   buttonYesReset: {fileID: 2975721}
   buttonNoReset: {fileID: 809614438}
-  minigameActive: 0
   buttonRight: {fileID: 796517883}
   buttonLeft: {fileID: 1399189579}
-  timer: 0
 --- !u!4 &1825787868
 Transform:
   m_ObjectHideFlags: 0
@@ -8481,6 +8480,20 @@ MonoBehaviour:
   junior: {fileID: 132601993}
   senior: {fileID: 518320804}
   king: {fileID: 1176501072}
+--- !u!114 &1825787874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825787866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd6883eece9ca84abbac0ab2c68af86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+  slime: {fileID: 1845409262}
 --- !u!1 &1845409262
 GameObject:
   m_ObjectHideFlags: 0
@@ -8587,6 +8600,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hungerPoints: 0
+  lastTimeLosePointsHungry: 
+  hourHungryString: 
+  timeToHungry: 30
+  timeToLosePoints: 10
 --- !u!1 &1864875498
 GameObject:
   m_ObjectHideFlags: 0
