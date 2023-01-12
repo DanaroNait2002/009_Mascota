@@ -14,7 +14,6 @@ public class Hungry : MonoBehaviour
     public string lastTimeLosePointsHungry;
     public string hourHungryString;
 
-    //seconds
     public int timeToHungry = 3;
     public int timeToLosePoints = 20;
 
@@ -34,18 +33,17 @@ public class Hungry : MonoBehaviour
     {
         hourHungryString = PlayerPrefs.GetString("hourHungryString", DateTime.Now.AddHours(timeToHungry).ToString());        
 
-        lastTimeLosePointsHungry = PlayerPrefs.GetString("lastTimeLosePointsHungry", DateTime.Now.AddSeconds(timeToLosePoints).ToString());
+        lastTimeLosePointsHungry = PlayerPrefs.GetString("lastTimeLosePointsHungry", DateTime.Now.AddMinutes(timeToLosePoints).ToString());
     }
 
     void Update()
     {
         if (hungerPoints == maxHungerPoints)
         {
-            DateTime whenIsHungry = DateTime.Now.AddSeconds(timeToHungry);
+            DateTime whenIsHungry = DateTime.Now.AddHours(timeToHungry);
             hourHungryString = whenIsHungry.ToString();
             PlayerPrefs.SetString("hourHungryString", hourHungryString);
             PlayerPrefs.Save();
-            Debug.Log("save hourHungryString");
             hungerPoints = 0;
             Animation_Interface.instance.AnimationHungry();
         }
@@ -57,7 +55,6 @@ public class Hungry : MonoBehaviour
             lastTimeLosePointsHungry = DateTime.Now.ToString();
             PlayerPrefs.SetString("lastTimeLosePointsHungry", lastTimeLosePointsHungry);
             PlayerPrefs.Save();
-            Debug.Log("save lastTimeLosePointsHungry");
         }
     }
 
@@ -71,18 +68,5 @@ public class Hungry : MonoBehaviour
     {
         DateTime lastTimeLosePoints = DateTime.Parse(lastTimeLosePointsHungry);
         return lastTimeLosePoints.AddMinutes(timeToLosePoints) < DateTime.Now;
-    }
-
-    void LostPoints()
-    {
-        if (IsHungry())
-        {
-            DateTime lastTimeLosePoints = DateTime.Parse(lastTimeLosePointsHungry);
-            DateTime timeNow = DateTime.Now;
-
-            int year = timeNow.Year;
-
-            //DateTime lostPoints = lastTimeLosePoints - timeNow;
-        }
     }
 }

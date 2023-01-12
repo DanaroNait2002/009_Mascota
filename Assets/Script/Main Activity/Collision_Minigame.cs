@@ -36,6 +36,8 @@ public class Collision_Minigame : MonoBehaviour
             }
             else
             {
+
+                Love_Points.instance.lovePointsManager(3);
                 scaleX = transform.localScale.x;
                 transform.localScale = new Vector3(scaleX + 0.1f, 1, 1);
             }

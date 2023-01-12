@@ -28,9 +28,9 @@ public class Pet : MonoBehaviour
 
     void Start()
     {
-        lastTimeLosePointsPet = PlayerPrefs.GetString("lastTimeLosePointsPet", DateTime.Now.AddSeconds(timeToLosePoints).ToString());
+        lastTimeLosePointsPet = PlayerPrefs.GetString("lastTimeLosePointsPet", DateTime.Now.AddMinutes(timeToLosePoints).ToString());
         hourPetString = PlayerPrefs.GetString("hourPetString", DateTime.Now.AddHours(timeToPet).ToString());
-        lastTimePetString = PlayerPrefs.GetString("lastTimePetString", DateTime.Now.AddSeconds(timeWhitoutPet).ToString());
+        lastTimePetString = PlayerPrefs.GetString("lastTimePetString", DateTime.Now.AddHours(timeWhitoutPet).ToString());
     }
 
     void Update()
@@ -75,7 +75,7 @@ public class Pet : MonoBehaviour
                         {
                             Love_Points.instance.lovePointsManager(10);
                             hourPetString = DateTime.Now.AddHours(timeToPet).ToString();
-                            lastTimePetString = DateTime.Now.AddSeconds(timeWhitoutPet).ToString();
+                            lastTimePetString = DateTime.Now.AddHours(timeWhitoutPet).ToString();
 
                             PlayerPrefs.SetString("hourPetString", hourPetString);
                             PlayerPrefs.SetString("lastTimePetString", lastTimePetString);
@@ -106,6 +106,6 @@ public class Pet : MonoBehaviour
     public bool CanLosePoints()
     {
         DateTime lastTimeLosePoints = DateTime.Parse(lastTimeLosePointsPet);
-        return lastTimeLosePoints.AddSeconds(timeToLosePoints) < DateTime.Now;
+        return lastTimeLosePoints.AddMinutes(timeToLosePoints) < DateTime.Now;
     }
 }
